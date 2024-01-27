@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <h1>INTRODUCTION TO HTTP</h1>  
+        <h2>1. About this chapter
+            
+        </h2>
+        <p>
+            This short chapter will introduce the basics of the HTTP protocol, including:
+        </p>
+        <h3>
+            - the message syntax,<br/>
+            - request methods (verbs),<br/>
+            - and response status codes.
+        </h3/>
+            <p>
+                Substantial parts are taken from 
+                <a href="https://tools.ietf.org/html/rfc7230">RFC 7230</a> and 
+                <a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>
+            </p>
+            <h2>
+                2. HTTP Message Syntax
+            </h2>
+            <h3>
+                2.1 Message Format
+            </h3>
+            <p>
+                All HTTP/1.1 messages consist of a start-line followed by a sequence of octets in a format similar to the Internet Message Format: zero or more header fields (collectively referred to as the "headers" or the "header section"), an empty line indicating the end of the header section, and an optional message body.
+            </p>
+            <h3>
+                2.2 Start Line
+            </h3>
+            <p>
+                An HTTP message can be either a "request" from client to server or a "response" from server to client.  Syntactically, the two types of message differ only in the start-line, which is either a request-line (for requests) or a status-line (for responses), and in the algorithm for determining the length of the message body.
+            </p>
+            <h3>
+                2.2.1 Request Line
+            </h3>
+            <p>
+                A request-line begins with a method token, followed by a single space (SP), the request-target, another single space (SP), the protocol version, and ends with CRLF. The method token indicates the request method to be performed on the target resource. The request method is case-sensitive. The request methods defined by this specification can be found in Section 3.
+            </p>
+            <h3>
+                2.2.2 Status Line
+            </h3>
+            <p>
+                The first line of a response message is the status-line, consisting of the protocol version, a space (SP), the status code, another space, a possibly empty textual phrase describing the status code, and ending with CRLF.
+            </p>
+            <p>
+                The status-code element is a 3-digit integer code describing the result of the server's attempt to understand and satisfy the client's corresponding request. The rest of the response message is to be interpreted in light of the semantics defined for that status code. see <a href = "#Section 4">Section 4</a> for information about the semantics of status codes, including the classes of a status code (indicated by the first digit).
+            </p>
+            <h2>
+                3. Request Methods
+            </h2>
+            <p>
+                The request method token is the primary source of request semantics; it indicates the purpose for which the client has made this request and what is expected by the client as a successful result.
+            </p>
+            <p>This specification defines a number of standardized methods that are commonly used in HTTP, as outlined by the following table. By convention, standardized methods are defined in all-uppercase US-ASCII letters.</p>
+            <table>
+                <thead>
+                    <tr> <th>Method</th> <th>Desription</th> </tr>
+                </thead>
+
+                <tbody>
+                    <tr> 
+                        <td>
+                            "GET"
+                        </td>
+                        
+                        <td>
+                            Transfer a current representation of the target resource.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            "PUT"
+                        </td>
+
+                        <td>
+                            Perform resource-specific processing on the request payload.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            "DELETE"
+                        </td>
+
+                        <td>
+                            Remove all current representations of the target resource.
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+    
+            <h2 id="Section 4.">
+                4. Response Status Codes
+            </h2>
+            
+            <p>
+                The status-code element is a three-digit integer code giving the result of the attempt to understand and satisfy the request.
+                <br>
+                <br>
+                HTTP status codes are extensible.  HTTP clients are not required to understand the meaning of all registered status codes, though such understanding is obviously desirable.  However, a client MUST understand the class of any status code, as indicated by the first digit, and treat an unrecognized status code as being equivalent to the x00 status code of that class, with the exception that a recipient MUST NOT cache a response with an unrecognized status code.
+                <br>
+                <br>
+                The first digit of the status-code defines the class of response. The last two digits do not have any categorization role.  There are five values for the first digit:
+                <br>
+                <ol>
+                    <li>1xx (Informational): The request was received, continuing process</li>
+                    <li>2xx (Successful): The request was successfully received, understood, and accepted</li>
+                    <li>3xx (Redirection): Further action needs to be taken in order to complete the request</li>
+                    <li>4xx (Client Error): The request contains bad syntax or cannot be fulfilled</li>
+                    <li>5xx (Server Error): The server failed to fulfill an apparently valid request</li>
+                </ol>
+            </p>
+
+            
+
+             
+            
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
